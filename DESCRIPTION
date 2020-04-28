@@ -1,0 +1,26 @@
+Package: RankinLabTools
+Title: General data cleaning tools for the Rankin lab
+Version: 0.0.0.9000
+Date: 2020-04-27
+Authors@R: 
+    person(given = "Patrick",
+           family = "Callahan",
+           role = c("aut", "cre"),
+           email = "patricktcallahan18@gmail.com",
+           comment = c(ORCID = "0000-0003-1769-7580"))
+Maintainer: Patrick Callahan <patricktcallahan18@gmail.com>
+URL: https://orcid.org/0000-0003-1769-7580
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    dplyr,
+    readr,
+    rlang,
+    glue,
+    stringr,
+    fuzzyjoin,
+    lubridate
