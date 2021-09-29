@@ -12,12 +12,8 @@
 #' @examples
 negative_values_to_na <- function(dataframe, vars_to_clean){
 
-  vars_to_clean <- enquo(vars_to_clean)
-
   dataframe %<>%
-    dplyr::mutate_at(dplyr::vars(!!vars_to_clean), ~dplyr::case_when(. >= 0 ~ .))
+    dplyr::mutate(dplyr::across({{vars_to_clean}}, ~dplyr::case_when(. >= 0 ~ .)) )
   return(dataframe)
 
 }
-
-
