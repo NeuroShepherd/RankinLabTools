@@ -14,14 +14,14 @@
 #' @export
 #'
 #' @examples
-custom_fuzzy_join <- function(df1, df2, key1, key2, date1, date2, mode = "left", interval = 90) {
+join_key_date_difference <- function(df1, df2, key1, key2, date1, date2, mode = "left", interval = 90) {
 
 
   joining_pidn <- magrittr::set_names(rlang::as_name(rlang::enquo(PIDN2)),
-                            rlang::as_name(rlang::enquo(PIDN1)) )
+                                      rlang::as_name(rlang::enquo(PIDN1)) )
 
   joining_date <- magrittr::set_names(rlang::as_name(rlang::enquo(DCDate2)),
-                            rlang::as_name(rlang::enquo(DCDate1)) )
+                                      rlang::as_name(rlang::enquo(DCDate1)) )
 
 
   DCDate1 <- df1 %>% dplyr::select({{DCDate1}}) %>% dplyr::mutate(dplyr::across(~as.date(.)))
@@ -32,7 +32,7 @@ custom_fuzzy_join <- function(df1, df2, key1, key2, date1, date2, mode = "left",
   fuzzy_joined_data <- df1 %>%
     fuzzyjoin::fuzzy_join(df2,
                           by=c(joining_pidn,joining_date),
-                          match_fun = list(`==`, function(x,y)abs(x-y)<interval),
+                          match_fun = list(`==`, function(x,y)abs(x-y)<=interval),
                           mode=mode)
 
   return(fuzzy_joined_data)
