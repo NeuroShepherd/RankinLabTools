@@ -2,26 +2,36 @@
 
 #' Calculate Global CDR plus NACC FTLD Rating
 #'
-#' @param data dataframe object, preferably with the standard NACC variable names
-#' @param cdr_variables vector of 8 variables used to calculate the CDR plus NACC FTLD score; default argument uses standard NACC variable names
+#' @param data dataframe object
+#' @param MEMORY
+#' @param ORIENT
+#' @param JUDGMENT
+#' @param COMMUN
+#' @param HOMEHOBB
+#' @param PERSCARE
+#' @param COMPORT
+#' @param CDRLANG
 #'
 #' @return dataframe
 #' @export
 #'
 #' @examples
 #' calculate_cdr_plus_nacc_ftld(nacc_data)
-calculate_cdr_plus_nacc_ftld <- function(data,
-                                         cdr_variables = c("MEMORY", "ORIENT", "JUDGMENT", "COMMUN", "HOMEHOBB", "PERSCARE", "COMPORT", "CDRLANG")) {
+calculate_cdr_plus_nacc_ftld <- function(data, MEMORY = MEMORY, ORIENT = ORIENT, JUDGMENT = JUDGMENT, COMMUN = COMMUN,
+                                         HOMEHOBB = HOMEHOBB, PERSCARE = PERSCARE, COMPORT = COMPORT, CDRLANG = CDRLANG) {
 
 
-  cdr_variables <- enquo(cdr_variables)
+  cdr_variables <- enexprs(MEMORY,ORIENT,JUDGMENT,COMMUN,HOMEHOBB,PERSCARE,COMPORT,CDRLANG) %>% as.character()
+
+  MEMORY <- enquo(MEMORY); ORIENT <- enquo(ORIENT); JUDGMENT <- enquo(JUDGMENT); COMMUN <- enquo(COMMUN)
+  HOMEHOBB <- enquo(HOMEHOBB); PERSCARE <- enquo(PERSCARE); COMPORT <- enquo(COMPORT); CDRLANG <- enquo(CDRLANG)
 
 
   data %<>%
     mutate(cdr_plus_nacc_ftld = case_when(
       # 1) If all domains are 0 then the global CDR plus NACC FTLD is 0
-      MEMORY==0 & ORIENT==0 & JUDGMENT==0 & COMMUN==0 &
-        HOMEHOBB==0 & PERSCARE==0 & COMPORT==0 & CDRLANG==0 ~ 0,
+      .data[[MEMORY]]==0 & .data[[ORIENT]]==0 & .data[[JUDGMENT]]==0 & .data[[COMMUN]]==0 &
+      .data[[HOMEHOBB]]==0 & .data[[PERSCARE]]==0 & .data[[COMPORT]]==0 & .data[[CDRLANG]]==0 ~ 0,
 
 
       # 2) If the maximum domain score is 0.5, the CDR plus NACC FTLD is 0.5
