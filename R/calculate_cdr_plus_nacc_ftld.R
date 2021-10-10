@@ -74,3 +74,28 @@ calculate_cdr_plus_nacc_ftld <- function(data,
 
 
 
+
+oinkers <- function(data, MEMORY = MEMORY, ORIENT = ORIENT, JUDGMENT = JUDGMENT, COMMUN = COMMUN,
+                    HOMEHOBB = HOMEHOBB, PERSCARE = PERSCARE, COMPORT = COMPORT, CDRLANG = CDRLANG) {
+
+  cdr_variables <- rlang::enexprs(MEMORY,ORIENT,JUDGMENT,COMMUN,HOMEHOBB,PERSCARE,COMPORT,CDRLANG)
+
+  data %<>%
+    dplyr::mutate(helloooo = (rowSums(dplyr::select(.,as.character(cdr_variables))) ),
+                  oink2 = dplyr::case_when(pmax( !!!cdr_variables ) == 0.5 ~ 0.5)
+    )
+
+  return(data)
+}
+
+
+
+# nacc_data <- readr::read_csv("~/Desktop/callahan09032020_v2.csv")
+
+nacc_data %>%
+  oinkers() %>%
+  dplyr::select(helloooo,oink2,MEMORY,ORIENT,JUDGMENT,COMMUN,
+                HOMEHOBB,PERSCARE,COMPORT,CDRLANG)
+
+
+
