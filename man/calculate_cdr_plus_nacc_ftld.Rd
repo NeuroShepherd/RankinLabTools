@@ -2,24 +2,49 @@
 % Please edit documentation in R/calculate_cdr_plus_nacc_ftld.R
 \name{calculate_cdr_plus_nacc_ftld}
 \alias{calculate_cdr_plus_nacc_ftld}
-\title{Calculate Global CDR plus NACC FTLD Rating}
+\title{Calculate Global CDR® plus NACC FTLD Rating}
 \usage{
 calculate_cdr_plus_nacc_ftld(
   data,
-  cdr_variables = c("MEMORY", "ORIENT", "JUDGMENT", "COMMUN", "HOMEHOBB", "PERSCARE",
-    "COMPORT", "CDRLANG")
+  MEMORY = MEMORY,
+  ORIENT = ORIENT,
+  JUDGMENT = JUDGMENT,
+  COMMUN = COMMUN,
+  HOMEHOBB = HOMEHOBB,
+  PERSCARE = PERSCARE,
+  COMPORT = COMPORT,
+  CDRLANG = CDRLANG
 )
 }
 \arguments{
-\item{data}{dataframe object, preferably with the standard NACC variable names}
+\item{data}{dataframe object}
 
-\item{cdr_variables}{vector of 8 variables used to calculate the CDR plus NACC FTLD score; default argument uses standard NACC variable names}
+\item{MEMORY}{CDR memory score}
+
+\item{ORIENT}{CDR orientation score}
+
+\item{JUDGMENT}{CDR judgement score}
+
+\item{COMMUN}{CDR community? score}
+
+\item{HOMEHOBB}{CDR home acitivites and hobbies score}
+
+\item{PERSCARE}{CDR personal care score}
+
+\item{COMPORT}{CDR behavior score}
+
+\item{CDRLANG}{CDR language score}
 }
 \value{
-dataframe
+Object the same type as the \code{data} argument which should be a data frame variant.
+\itemize{
+\item The returned data frame includes a new variable labeled \code{cdr_plus_nacc_ftld}
+}
 }
 \description{
-Calculate Global CDR plus NACC FTLD Rating
+\code{calculate_cdr_plus_nacc_ftld()} calculates the global CDR® plus NACC FTLD score
+as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
+but
 }
 \examples{
 calculate_cdr_plus_nacc_ftld(nacc_data)

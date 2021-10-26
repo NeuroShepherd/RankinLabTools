@@ -1,18 +1,26 @@
 
 
-#' Calculate Global CDR plus NACC FTLD Rating
+#' Calculate Global CDR`r sprintf("\U00AE")` plus NACC FTLD Rating
+#'
+#' @description `calculate_cdr_plus_nacc_ftld()` calculates the global CDR`r sprintf("\U00AE")` plus NACC FTLD score
+#' as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
+#' but custom variable names can be assigned to each of these arguments.
 #'
 #' @param data dataframe object
-#' @param MEMORY
-#' @param ORIENT
-#' @param JUDGMENT
-#' @param COMMUN
-#' @param HOMEHOBB
-#' @param PERSCARE
-#' @param COMPORT
-#' @param CDRLANG
+#' @param MEMORY CDR memory score
+#' @param ORIENT CDR orientation score
+#' @param JUDGMENT CDR judgement score
+#' @param COMMUN CDR community? score
+#' @param HOMEHOBB CDR home acitivites and hobbies score
+#' @param PERSCARE CDR personal care score
+#' @param COMPORT CDR behavior score
+#' @param CDRLANG CDR language score
 #'
-#' @return dataframe
+#' @return
+#'
+#' Object the same type as the `data` argument which should be a data frame variant.
+#'  * The returned data frame includes a new variable labeled `cdr_plus_nacc_ftld`
+#'
 #' @export
 #'
 #' @examples
