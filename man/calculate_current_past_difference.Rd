@@ -6,27 +6,14 @@
 This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
 Intended to be used in conjunction with the combine_current_and_past_observations() function.}
 \usage{
-calculate_current_past_difference(
-  dataframe,
-  variables_past,
-  variables_current,
-  variables_output_prefix,
-  PIDN = PIDN,
-  DCDate = DCDate
-)
+calculate_current_past_difference(dataframe, final, initial)
 }
 \arguments{
 \item{dataframe}{dataframe object}
 
-\item{variables_past}{variables where the observation is in the past}
+\item{final}{vector of final value columns from dataframe}
 
-\item{variables_current}{variables where the observation is current}
-
-\item{variables_output_prefix}{add a meaningful prefix to the name of the difference columns}
-
-\item{PIDN}{defaults to PIDN; can be any other ID}
-
-\item{DCDate}{defaults to DCDate; can be any other date variable}
+\item{initial}{vector of initial value columns from dataframe}
 }
 \value{
 dataframe
