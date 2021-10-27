@@ -19,7 +19,7 @@ Our lab leverages Qualtrics for a large portion of our human subjects data colle
 
 ### NACC Functions
 
-At current, there is a standalone function for calculating the global CDR&#174; plus NACC FTLD score as described by Miyagawa et al. (2020). 
+At current, there is a standalone function for calculating the global CDR&#174; plus NACC FTLD score as described by [Miyagawa et al. (2020)](./publications/alz.12033.pdf). 
 
 * Run `vignette("NACC", package="RankinLabTools")` for details on how this function is intended to be used.
 
