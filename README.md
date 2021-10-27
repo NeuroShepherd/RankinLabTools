@@ -12,11 +12,15 @@ One of the lab's internal projects, compiling all of our social function tests a
 
 ### Qualtrics Functions
 
-Our lab leverages Qualtrics for a large portion of our human subjects data collection initiative. Qualtrics offers an API for downloading the collected data, and this package includes wrapper functions of the {qualtRics} package to directly query the UCSF instance of Qualtrics. Run `vignette("UCSF_Qualtrics", package="RankinLabTools")` for details on connecting.
+Our lab leverages Qualtrics for a large portion of our human subjects data collection initiative. Qualtrics offers an API for downloading the collected data, and this package includes wrapper functions of the {qualtRics} package to directly query the UCSF instance of Qualtrics. 
+
+* Run `vignette("UCSF_Qualtrics", package="RankinLabTools")` for details on connecting.
 
 
 ### NACC Functions
 
-At current, there is a standalone function for calculating the global CDR`r sprintf("\U00AE")` plus NACC FTLD score as described by Miyagawa et al. (2020). Run `vignette("NACC", package="RankinLabTools")` for details on how this function is intended to be used.
+At current, there is a standalone function for calculating the global CDR&#174; plus NACC FTLD score as described by Miyagawa et al. (2020). 
+
+* Run `vignette("NACC", package="RankinLabTools")` for details on how this function is intended to be used.
 
 This section is in a questioning state as it is not yet clear that other NACC-related functions will be needed.
