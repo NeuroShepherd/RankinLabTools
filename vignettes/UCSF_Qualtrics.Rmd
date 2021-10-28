@@ -17,3 +17,22 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(RankinLabTools)
 ```
+
+
+# Overview
+
+The Rankin lab, and many other teams at the Memory and Aging Center + UCSF at large, leverage the Qualtrics platform as a quick-and-easy way to create electronic questionnaires, tests, and other types of data being collected. Qualtrics offers an API to easily collect data from these surveys, and there is an existing R package called `{qualtRics}` purpose-built for querying the API. 
+
+This vignette describes how to use wrapper functions I wrote around the `{qualtRics}` package to query our data from the UCSF instance of Qualtrics.
+
+While Qualtrics does allow for manual downloading of data into CSV, TSV, and there file types, the ultimate goal of using the API query approach is to enable complete automation of data retrieval and cleaning. For example, a script written to download, score, clean, and write data (e.g. to a CSV, SQL server, etc.) will better ensure data integrity while freeing up research teams to focus more on data collection and analysis rather than pesky data management issues.
+
+## Step 0: Pre-Authentication
+
+I am going to assume minor familiarity with APIs (application programming interfaces) for this vignette. If you have no idea what they are or how they work, please at least take a look at the [Wikipedia page](https://en.wikipedia.org/wiki/API) and spent a few minutes browsing the web.
+
+Great, you understand APIs now! As a result, you'll know that many APIs require some sort of authentication or password to access the data, and Qualtrics is no exception to that. To query the Qualtrics API, you will need to obtain your API Token from the Qualtrics site. 
+
+
+
+
