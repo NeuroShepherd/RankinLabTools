@@ -51,6 +51,8 @@ Now that you have your authentication token available, you'll be able to use it 
     * To avoid leaving your API key in plain-text, I recommend storing the token in your OSx Keychain (Mac), and using the `keyringr` package to retrieve the key when running a session. For example: `qualtrics_ucsf_api_credentials(api_key = keyringr::decrypt_kc_pw("QUALTRICS_TOKEN"))` will require computer admin privileges to look in the Keychain for QUALTRICS_TOKEN, and will return the appropriate value if it exists.
 3. Your session is now authenticated, and Qualtrics will let you download data for the next 60 minutes without needing to reauthenticate. (Note: this could change in the future, so Google for "qualtrics api authentication duration" or similar if time-outs occur before 60 minutes.)
 
+Optional: to further elaborate on this authentication process and the `{qualtRics}` package: the function mentioned in bullet point 2 is a wrapper around `qualtRics::qualtrics_api_credentials()` where I've simply inserted UCSF's base URL for the Qualtrics API ("ucsf.co1.qualtrics.com"). All other arguments have been left alone.
+
 ## Step 2: Downloading Survey Data
 
 Now that you're authenticating, finally on to the good stuff!
