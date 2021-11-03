@@ -1,5 +1,14 @@
 
 
+#' Title
+#'
+#' @param data
+#' @param var
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qualtrics_hot_spot_score <- function(data,var) {
 
   data %>%

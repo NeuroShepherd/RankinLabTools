@@ -27,7 +27,9 @@ This vignette describes how to use wrapper functions I wrote around the `{qualtR
 
 While Qualtrics does allow for manual downloading of data into CSV, TSV, and there file types, the ultimate goal of using the API query approach is to enable complete automation of data retrieval and cleaning. For example, a script written to download, score, clean, and write data (e.g. to a CSV, SQL server, etc.) will better ensure data integrity while freeing up research teams to focus more on data collection and analysis rather than pesky data management issues.
 
-## Step 0: Pre-Authentication
+## Connecting to Qualtrics
+
+### Step 0: Pre-Authentication
 
 I am going to assume minor familiarity with APIs (application programming interfaces) for this vignette. If you have no idea what they are or how they work, please at least take a look at the [Wikipedia page](https://en.wikipedia.org/wiki/API) and spend a few minutes browsing the web for searches about APIs.
 
@@ -42,7 +44,7 @@ In words, perform the following steps:
 1. Press the Qualtrics ID tab.
 1. Find the "Token" variable listed under the "API" block, and copy that value.
 
-## Step 1: Authentication
+### Step 1: Authentication
 
 Now that you have your authentication token available, you'll be able to use it to tell the Qualtrics API who you are. This is done over an HTTP request, and fortunately someone else created the `{qualtRics}` package to do all of the heavy-lifting of talking to Qualtrics and creating easily-readable data frames. But first, authentication:
 
@@ -53,7 +55,7 @@ Now that you have your authentication token available, you'll be able to use it 
 
 Optional: to further elaborate on this authentication process and the `{qualtRics}` package: the function mentioned in bullet point 2 is a wrapper around `qualtRics::qualtrics_api_credentials()` where I've simply inserted UCSF's base URL for the Qualtrics API ("ucsf.co1.qualtrics.com"). All other arguments have been left alone.
 
-## Step 2: Downloading Survey Data
+### Step 2: Downloading Survey Data
 
 Now that you're authenticating, finally on to the good stuff!
 
@@ -93,5 +95,8 @@ data <- tests %>%
   setNames(pull(tests,name))
   
 ```
+
+
+## Cleaning Qualtrics Data
 
 

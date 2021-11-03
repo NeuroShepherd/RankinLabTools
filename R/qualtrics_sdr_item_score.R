@@ -1,5 +1,16 @@
 
 
+#' Title
+#'
+#' @param data
+#' @param two_point1
+#' @param two_point2
+#' @param one_point
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qualtrics_sdr_item_score <- function(data, two_point1, two_point2 = NA, one_point) {
 
   var <- data %>%

@@ -1,5 +1,14 @@
 
 
+#' Title
+#'
+#' @param df
+#' @param root_variable
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qualtrics_tom_item_response <- function(df, root_variable) {
 
   var_names <- df %>%

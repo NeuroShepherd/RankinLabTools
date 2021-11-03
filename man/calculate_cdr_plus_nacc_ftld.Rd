@@ -44,7 +44,7 @@ Object the same type as the \code{data} argument which should be a data frame va
 \description{
 \code{calculate_cdr_plus_nacc_ftld()} calculates the global CDR® plus NACC FTLD score
 as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
-but
+but custom variable names can be assigned to each of these arguments.
 }
 \examples{
 calculate_cdr_plus_nacc_ftld(nacc_data)

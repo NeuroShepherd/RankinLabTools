@@ -1,5 +1,15 @@
 
 
+#' Title
+#'
+#' @param data
+#' @param var
+#' @param value
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qualtrics_dart_item_score <- function(data,var,value) {
 
   data %>%

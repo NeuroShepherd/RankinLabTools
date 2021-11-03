@@ -1,5 +1,14 @@
 
 
+#' Title
+#'
+#' @param df
+#' @param variable
+#'
+#' @return
+#' @export
+#'
+#' @examples
 qualtrics_sdr_item_response <- function(df, variable) {
 
   var_names <- df %>%
