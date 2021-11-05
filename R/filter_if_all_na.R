@@ -1,22 +1,22 @@
 
 
 
-#' Remove Rows with Multipls NAs
+#' Remove Rows with Multiple NAs
 #'
-#' @description This function allows you to remove rows if ALL specified columns are NA
+#' @description
+#' This function filters out rows where all variables specified in the `...` argument are NA.
 #'
+#' @param ...
 #' @param dataframe dataframe object
-#' @param columns variables to check for missingness
 #'
 #' @return
 #' @export
 #'
 #' @examples
-remove_rows_with_mult_NAs <- function(dataframe, columns){
-  columns <- enquo(columns)
+filter_if_all_na <- function(dataframe, ...){
 
   dataframe %<>%
-    dplyr::filter_at(dplyr::vars(!!columns), dplyr::any_vars(!is.na(.)))
+    dplyr::filter( dplyr::if_any(c(...), ~!is.na(.)) )
 
   return(dataframe)
   # This function allows you to remove rows from a dataframe given ALL variables specified in the *columns*
