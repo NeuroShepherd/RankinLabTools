@@ -2,8 +2,7 @@
 % Please edit documentation in R/remove_rows_with_multiples_nas.R
 \name{remove_rows_with_mult_NAs}
 \alias{remove_rows_with_mult_NAs}
-\title{Remove Rows with Multipls NAs
-This function allows you to remove rows if ALL specified columns are NA}
+\title{Remove Rows with Multipls NAs}
 \usage{
 remove_rows_with_mult_NAs(dataframe, columns)
 }
@@ -16,6 +15,5 @@ remove_rows_with_mult_NAs(dataframe, columns)
 
 }
 \description{
-Remove Rows with Multipls NAs
 This function allows you to remove rows if ALL specified columns are NA
 }

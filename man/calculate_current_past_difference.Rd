@@ -2,9 +2,7 @@
 % Please edit documentation in R/calculate_current_past_difference.R
 \name{calculate_current_past_difference}
 \alias{calculate_current_past_difference}
-\title{Calculate difference between vectors of columns
-This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
-Intended to be used in conjunction with the combine_current_and_past_observations() function.}
+\title{Calculate difference between vectors of columns}
 \usage{
 calculate_current_past_difference(dataframe, final, initial)
 }
@@ -19,7 +17,6 @@ calculate_current_past_difference(dataframe, final, initial)
 dataframe
 }
 \description{
-Calculate difference between vectors of columns
 This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
 Intended to be used in conjunction with the combine_current_and_past_observations() function.
 }

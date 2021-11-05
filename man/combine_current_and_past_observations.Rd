@@ -24,5 +24,5 @@ combine_current_and_past_observations(
 dataframe
 }
 \description{
-Combine Current and Past Observations
+
 }

@@ -1,7 +1,8 @@
 
 
 #' Impute for Missing Values
-#' This function calculates imputed scores where item-level data is missing, and allows for the threshold of proportion of missing questions to be adjusted
+#'
+#' @description This function calculates imputed scores where item-level data is missing, and allows for the threshold of proportion of missing questions to be adjusted
 #'
 #' @param dataframe dataframe object
 #' @param vars_to_impute vector of variables from which a score will be calculated/imputed

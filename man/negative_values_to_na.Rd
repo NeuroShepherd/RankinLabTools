@@ -2,8 +2,7 @@
 % Please edit documentation in R/set_negative_values_to_na.R
 \name{negative_values_to_na}
 \alias{negative_values_to_na}
-\title{Negative Values to NA
-Allows for the user to define any numeric variables they would like to change to NA if the value of that variable is less than 0}
+\title{Negative Values to NA}
 \usage{
 negative_values_to_na(dataframe, vars_to_clean)
 }
@@ -16,6 +15,5 @@ negative_values_to_na(dataframe, vars_to_clean)
 
 }
 \description{
-Negative Values to NA
 Allows for the user to define any numeric variables they would like to change to NA if the value of that variable is less than 0
 }

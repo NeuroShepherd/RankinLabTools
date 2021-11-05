@@ -2,8 +2,7 @@
 % Please edit documentation in R/impute_missing_values.R
 \name{impute_missing_values}
 \alias{impute_missing_values}
-\title{Impute for Missing Values
-This function calculates imputed scores where item-level data is missing, and allows for the threshold of proportion of missing questions to be adjusted}
+\title{Impute for Missing Values}
 \usage{
 impute_missing_values(
   dataframe,
@@ -28,6 +27,5 @@ impute_missing_values(
 
 }
 \description{
-Impute for Missing Values
 This function calculates imputed scores where item-level data is missing, and allows for the threshold of proportion of missing questions to be adjusted
 }

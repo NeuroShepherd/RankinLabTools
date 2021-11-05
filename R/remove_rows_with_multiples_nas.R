@@ -2,7 +2,8 @@
 
 
 #' Remove Rows with Multipls NAs
-#' This function allows you to remove rows if ALL specified columns are NA
+#'
+#' @description This function allows you to remove rows if ALL specified columns are NA
 #'
 #' @param dataframe dataframe object
 #' @param columns variables to check for missingness

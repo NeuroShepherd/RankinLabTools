@@ -1,7 +1,8 @@
 
 
 #' Calculate difference between vectors of columns
-#' This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
+#'
+#' @description This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
 #' Intended to be used in conjunction with the combine_current_and_past_observations() function.
 #'
 #' @param dataframe dataframe object

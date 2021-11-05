@@ -1,7 +1,8 @@
 
 
 #' Read CSV By String Search
-#' This convenience function searches either the default directory or a specified directory for a (1) .csv file that at least partially matches the string_search variable. The file is then read-in to R.
+#'
+#' @description This convenience function searches either the default directory or a specified directory for a (1) .csv file that at least partially matches the string_search variable. The file is then read-in to R.
 #'
 #' @param string_search string to search for in the directory
 #' @param file_parent can specify the parent directory of the file if needed

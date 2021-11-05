@@ -2,8 +2,7 @@
 % Please edit documentation in R/reverse_scoring.R
 \name{reverse_scoring}
 \alias{reverse_scoring}
-\title{Reverse Scoring
-Allows for reverse-scoring of any specified columns}
+\title{Reverse Scoring}
 \usage{
 reverse_scoring(dataframe, reversed_columns, extremum_max)
 }
@@ -18,6 +17,5 @@ reverse_scoring(dataframe, reversed_columns, extremum_max)
 
 }
 \description{
-Reverse Scoring
 Allows for reverse-scoring of any specified columns
 }

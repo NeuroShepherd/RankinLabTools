@@ -2,10 +2,7 @@
 % Please edit documentation in R/combine_mac_and_uds_encounters.R
 \name{combine_mac_uds_encounters}
 \alias{combine_mac_uds_encounters}
-\title{Combine MAC and UDS Encounters
-This function allows you to combine MAC and UDS encounters for a particular test where the
-encounters have been separated into different rows, but really occurred around the same time period.
-You can determine what range of days qualifies as a "single visit" using the day_range argument.}
+\title{Combine MAC and UDS Encounters}
 \usage{
 combine_mac_uds_encounters(
   dataframe,
@@ -30,7 +27,6 @@ combine_mac_uds_encounters(
 dataframe
 }
 \description{
-Combine MAC and UDS Encounters
 This function allows you to combine MAC and UDS encounters for a particular test where the
 encounters have been separated into different rows, but really occurred around the same time period.
 You can determine what range of days qualifies as a "single visit" using the day_range argument.

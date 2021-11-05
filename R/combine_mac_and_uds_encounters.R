@@ -1,6 +1,7 @@
 
 #' Combine MAC and UDS Encounters
-#' This function allows you to combine MAC and UDS encounters for a particular test where the
+#'
+#' @description This function allows you to combine MAC and UDS encounters for a particular test where the
 #' encounters have been separated into different rows, but really occurred around the same time period.
 #' You can determine what range of days qualifies as a "single visit" using the day_range argument.
 #'

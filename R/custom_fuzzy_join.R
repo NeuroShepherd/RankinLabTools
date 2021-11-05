@@ -1,5 +1,7 @@
 
-#' Title
+#' Fuzzy Join by Days
+#'
+#' @description
 #'
 #' @param df1 first dataframe argument
 #' @param DCDate1 first date argument

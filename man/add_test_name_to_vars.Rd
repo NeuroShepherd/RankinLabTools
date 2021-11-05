@@ -2,8 +2,7 @@
 % Please edit documentation in R/final_variable_naming.R
 \name{add_test_name_to_vars}
 \alias{add_test_name_to_vars}
-\title{Add Test Name to Variables
-Adds a name to all variables in the dataframe; can specify if the name appears at the beginning or end of the variables}
+\title{Add Test Name to Variables}
 \usage{
 add_test_name_to_vars(dataframe, test_name, location = 0)
 }
@@ -18,6 +17,5 @@ add_test_name_to_vars(dataframe, test_name, location = 0)
 
 }
 \description{
-Add Test Name to Variables
 Adds a name to all variables in the dataframe; can specify if the name appears at the beginning or end of the variables
 }

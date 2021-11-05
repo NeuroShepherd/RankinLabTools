@@ -2,8 +2,7 @@
 % Please edit documentation in R/read_csv_by_string.R
 \name{read_csv_by_string_search}
 \alias{read_csv_by_string_search}
-\title{Read CSV By String Search
-This convenience function searches either the default directory or a specified directory for a (1) .csv file that at least partially matches the string_search variable. The file is then read-in to R.}
+\title{Read CSV By String Search}
 \usage{
 read_csv_by_string_search(string_search, file_parent)
 }
@@ -16,6 +15,5 @@ read_csv_by_string_search(string_search, file_parent)
 
 }
 \description{
-Read CSV By String Search
 This convenience function searches either the default directory or a specified directory for a (1) .csv file that at least partially matches the string_search variable. The file is then read-in to R.
 }

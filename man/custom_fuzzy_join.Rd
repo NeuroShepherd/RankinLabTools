@@ -2,7 +2,7 @@
 % Please edit documentation in R/custom_fuzzy_join.R
 \name{custom_fuzzy_join}
 \alias{custom_fuzzy_join}
-\title{Title}
+\title{Fuzzy Join by Days}
 \usage{
 custom_fuzzy_join(
   df1,
@@ -36,5 +36,5 @@ custom_fuzzy_join(
 
 }
 \description{
-Title
+
 }

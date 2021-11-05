@@ -1,7 +1,8 @@
 
 
 #' Negative Values to NA
-#' Allows for the user to define any numeric variables they would like to change to NA if the value of that variable is less than 0
+#'
+#' @description Allows for the user to define any numeric variables they would like to change to NA if the value of that variable is less than 0
 #'
 #' @param dataframe dataframe object
 #' @param vars_to_clean any numeric variables where negative values should be set to NA

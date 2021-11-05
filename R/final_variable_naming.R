@@ -1,7 +1,8 @@
 
 
 #' Add Test Name to Variables
-#' Adds a name to all variables in the dataframe; can specify if the name appears at the beginning or end of the variables
+#'
+#' @description Adds a name to all variables in the dataframe; can specify if the name appears at the beginning or end of the variables
 #'
 #' @param dataframe dataframe object
 #' @param test_name name to be added to all variables; must be quoted (e.g. "name")

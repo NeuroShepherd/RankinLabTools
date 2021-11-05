@@ -2,6 +2,8 @@
 
 #' Combine Current and Past Observations
 #'
+#' @description
+#'
 #' @param dataframe dataframe object
 #' @param CurrentPast variable indicating whether the observation is a "Current" or "Past" record; default column name expected is CurrentPast, but can be replaced with any column with "current" and "past"/"before" characters
 #' @param DCDate date column; defaults to DCDate

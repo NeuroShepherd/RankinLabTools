@@ -1,6 +1,7 @@
 
 #' Reverse Scoring
-#' Allows for reverse-scoring of any specified columns
+#'
+#' @description Allows for reverse-scoring of any specified columns
 #'
 #' @param dataframe dataframe object
 #' @param reversed_columns variables to have their score reversed
