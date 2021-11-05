@@ -99,4 +99,19 @@ data <- tests %>%
 
 ## Cleaning Qualtrics Data
 
+### Guidance
+
+The biggest piece of advice I can provide when it comes to cleaning Qualtrics data, and really any data, is to learn how to use the `{tidyverse}` packages of `{dplyr}` and `{tidyr}` with a strong emphasis on the former. Start your exploration or learn more at [tidyverse.org](https://www.tidyverse.org/).
+
+With that said, there are a few Qualtrics-specific issues you might encounter when cleaning data. With respect to the tests and questionnaires developed in our lab, this package contains a handful of functions that help consolidate more difficult cleaning tasks. 
+
+For example, Qualtrics has ["Hot Spot"](https://www.qualtrics.com/support/survey-platform/survey-module/editing-questions/question-types-guide/specialty-questions/hot-spot/) questions that we employ for certain tests (e.g. the Social Display Rules, or SDR, picture selection test). The hot spot question results for a single question are spread across N variables where N is the number of hot spots. A question of this type with 3 hot spots will therefore have an output format like below:
+
+```{r echo=F}
+tibble::tibble(QID1_1="On", QID1_2="Off", QID1_3="Off")
+```
+
+Writing code to determine whether someone selected hot spot 1, 2, 3, or...N may be fine for a small number of hot spots, but quickly becomes tedious over a large quantity of hot spot questions. The `qualtrics_hot_spot_score()` function addresses this issue. (Elaborate on what this function does.)
+
+
 

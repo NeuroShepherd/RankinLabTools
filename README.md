@@ -2,7 +2,15 @@
 # {RankinLabTools} Package
 ## Overview
 
-RankinLabTools is a set of functions and tools dedicated to reading, cleaning, and scoring data for many of the tests and sets of data in use by the Rankin lab at the UCSF Memory and Aging Center.
+RankinLabTools is a set of functions and tools dedicated to reading, cleaning, and scoring data for many of the tests and sets of data in use by the Rankin lab at the UCSF Memory and Aging Center. To install this package, you will first need the `{devtools}` R package. Run the following code to install everything necessary:
+
+```
+# Install the devtools package from CRAN
+install.packages("devtools")
+
+# Use the devtools package to install the RankinLabTools package from GitHub
+devtools::install_github("NeuroShepherd/RankinLabTools")
+```
 
 
 ### Social Function Dataset Functions
