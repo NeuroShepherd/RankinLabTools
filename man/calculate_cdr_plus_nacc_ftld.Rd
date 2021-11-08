@@ -47,5 +47,6 @@ as described by Miyagawa et al. (2020). The default arguments expect CDR variabl
 but custom variable names can be assigned to each of these arguments.
 }
 \examples{
-calculate_cdr_plus_nacc_ftld(nacc_data)
+
+
 }

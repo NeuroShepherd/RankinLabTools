@@ -24,19 +24,20 @@
 #' @export
 #'
 #' @examples
-#' calculate_cdr_plus_nacc_ftld(nacc_data)
+#'
+#'
 calculate_cdr_plus_nacc_ftld <- function(data, MEMORY = MEMORY, ORIENT = ORIENT, JUDGMENT = JUDGMENT, COMMUN = COMMUN,
                                          HOMEHOBB = HOMEHOBB, PERSCARE = PERSCARE, COMPORT = COMPORT, CDRLANG = CDRLANG) {
 
 
-  cdr_variables <- enexprs(MEMORY,ORIENT,JUDGMENT,COMMUN,HOMEHOBB,PERSCARE,COMPORT,CDRLANG) %>% as.character()
+  cdr_variables <- rlang::enexprs(MEMORY,ORIENT,JUDGMENT,COMMUN,HOMEHOBB,PERSCARE,COMPORT,CDRLANG) %>% as.character()
 
-  MEMORY <- enquo(MEMORY); ORIENT <- enquo(ORIENT); JUDGMENT <- enquo(JUDGMENT); COMMUN <- enquo(COMMUN)
-  HOMEHOBB <- enquo(HOMEHOBB); PERSCARE <- enquo(PERSCARE); COMPORT <- enquo(COMPORT); CDRLANG <- enquo(CDRLANG)
+  MEMORY <- rlang::enquo(MEMORY); ORIENT <- rlang::enquo(ORIENT); JUDGMENT <- rlang::enquo(JUDGMENT); COMMUN <- rlang::enquo(COMMUN)
+  HOMEHOBB <- rlang::enquo(HOMEHOBB); PERSCARE <- rlang::enquo(PERSCARE); COMPORT <- rlang::enquo(COMPORT); CDRLANG <- rlang::enquo(CDRLANG)
 
 
   data %<>%
-    mutate(cdr_plus_nacc_ftld = case_when(
+    dplyr::mutate(cdr_plus_nacc_ftld = dplyr::case_when(
       # 1) If all domains are 0 then the global CDR plus NACC FTLD is 0
       .data[[MEMORY]]==0 & .data[[ORIENT]]==0 & .data[[JUDGMENT]]==0 & .data[[COMMUN]]==0 &
       .data[[HOMEHOBB]]==0 & .data[[PERSCARE]]==0 & .data[[COMPORT]]==0 & .data[[CDRLANG]]==0 ~ 0,
