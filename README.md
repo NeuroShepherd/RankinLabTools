@@ -9,7 +9,7 @@ RankinLabTools is a set of functions and tools dedicated to reading, cleaning, a
 install.packages("devtools")
 
 # Use the devtools package to install the RankinLabTools package from GitHub
-devtools::install_github("NeuroShepherd/RankinLabTools")
+devtools::install_github("NeuroShepherd/RankinLabTools", build_vignettes=T)
 ```
 
 
