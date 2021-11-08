@@ -3,21 +3,20 @@
 #'
 #' @description
 #'
-#' @param df1 first dataframe argument
-#' @param DCDate1 first date argument
-#' @param PIDN1 first ID argument; defaults to PIDN
-#' @param df2 second dataframe argument
-#' @param DCDate2 second date argument
-#' @param PIDN2 second ID argument; defaults to PIDN
-#' @param mode used to specify if the join should be "left", "right", "full", "semi", or "anti"; defaults to "left"
-#' @param interval absolute value of days over which to match visits; default of +/-90 days
+#' @param data1 first data frame
+#' @param data2 second data frame
+#' @param id1 primary key variable from data1
+#' @param id2 primary key variable from data2
+#' @param date1 date key variable from data1. This column should be of class "Date," but accepts any numeric value
+#' @param date2 date key variable from data2. This column should be of class "Date," but accepts any numeric value
+#' @param mode specify join type should be "left", "right", "full", "semi", or "anti"; defaults to "left"
+#' @param interval absolute value of days over which to match observations by id; default of +/-90 days
 #'
-#' @return
+#' @return data frame comprised of data1 and data2
 #' @export
 #'
 #' @examples
-join_key_date_difference <- function(data1, data2, id1, id2, date1, date2,
-                              mode = "left", interval = 90) {
+join_key_date_difference <- function(data1, data2, id1, id2, date1, date2, mode = "left", interval = 90) {
 
 
   # Sub into the fuzzy_join by= call?
