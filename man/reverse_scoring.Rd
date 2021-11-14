@@ -4,18 +4,18 @@
 \alias{reverse_scoring}
 \title{Reverse Scoring}
 \usage{
-reverse_scoring(dataframe, reversed_columns, extremum_max)
+reverse_scoring(.data, ..., max_score)
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
-\item{reversed_columns}{variables to have their score reversed}
+\item{...}{variables to have their score reversed}
 
-\item{extremum_max}{maximum attainable score on the variables selected; needs to be the same maximum for all vars}
+\item{max_score}{maximum attainable score on the variables selected; needs to be the same maximum for all vars}
 }
 \value{
 
 }
 \description{
-Allows for reverse-scoring of any specified columns
+This function wraps \code{dplyr::mutate()} to reverse score columns given in the \code{...} argument. This procedure is frequently used for e.g. Likert scale questions whereby different questions within the same questionnaire have positive or negative valence.
 }

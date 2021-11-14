@@ -4,12 +4,12 @@
 \alias{negative_values_to_na}
 \title{Negative Values to NA}
 \usage{
-negative_values_to_na(dataframe, vars_to_clean)
+negative_values_to_na(.data, ...)
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
-\item{vars_to_clean}{any numeric variables where negative values should be set to NA}
+\item{...}{any numeric variables where negative values should be set to NA}
 }
 \value{
 

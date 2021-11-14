@@ -4,14 +4,14 @@
 \alias{select_by_test_name}
 \title{Title}
 \usage{
-select_by_test_name(dataframe, test_names, ...)
+select_by_test_name(.data, test_names, ...)
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
-\item{test_names}{character vector of all names of tests that one would like to select from the dataframe; assumes that the tests share a common string (e.g. "_DART" or "_BISBAS")}
+\item{test_names}{character vector of all names of tests that one would like to select from .data; assumes that the tests share a common string (e.g. "_DART" or "_BISBAS")}
 
-\item{...}{any additional columns to be selected from the dataframe}
+\item{...}{any additional columns to be selected from .data}
 }
 \value{
 

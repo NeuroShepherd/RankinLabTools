@@ -4,12 +4,12 @@
 \alias{read_csv_by_string_search}
 \title{Read CSV By String Search}
 \usage{
-read_csv_by_string_search(string_search, file_parent)
+read_csv_by_string_search(string_search, directory = here::here())
 }
 \arguments{
-\item{string_search}{string to search for in the directory}
+\item{string_search}{string or regular expression to search for in the directory}
 
-\item{file_parent}{can specify the parent directory of the file if needed}
+\item{directory}{string of the directory in which to search for CSV file; defaults to the current working directory using here::here()}
 }
 \value{
 

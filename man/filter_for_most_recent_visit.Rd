@@ -2,18 +2,22 @@
 % Please edit documentation in R/filter_for_most_recent_visit.R
 \name{filter_for_most_recent_visit}
 \alias{filter_for_most_recent_visit}
-\title{Title}
+\title{Filter for Most Recent Visit by ID}
 \usage{
-filter_for_most_recent_visit(dataframe, id, date)
+filter_for_most_recent_visit(.data, id, date)
 }
 \arguments{
-\item{date}{}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
+
+\item{id}{identifying and/or grouping variable}
+
+\item{date}{date variable. Should be of class date, but can be any numeric value.}
 }
 \value{
 
 }
 \description{
-Title
+Filter for Most Recent Visit by ID
 }
 \examples{
 

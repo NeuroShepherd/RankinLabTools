@@ -4,26 +4,24 @@
 #'
 #' @description This convenience function searches either the default directory or a specified directory for a (1) .csv file that at least partially matches the string_search variable. The file is then read-in to R.
 #'
-#' @param string_search string to search for in the directory
-#' @param file_parent can specify the parent directory of the file if needed
+#' @param string_search string or regular expression to search for in the directory
+#' @param directory string of the directory in which to search for CSV file; defaults to the current working directory using here::here()
 #'
 #' @return
 #' @export
 #'
 #' @examples
-read_csv_by_string_search <- function(string_search, file_parent) {
-  if(rlang::is_missing(file_parent)){
-    destination <- here::here()
-  } else {
-    destination <- here::here(file_parent)
-  }
+read_csv_by_string_search <- function(string_search, directory = here::here()) {
 
-
-  pathway <- fs::dir_info(destination) %>%
-    dplyr::filter_at(vars(path), dplyr::all_vars(stringr::str_detect(.,pattern=glue::glue("{string_search}")))) %>%
+  pathway <- fs::dir_info(directory) %>%
+    dplyr::filter(dplyr::across(path, ~stringr::str_detect(.x,pattern=glue::glue("{string_search}")))) %>%
     dplyr::pull(path)
-  if (length(pathway) < 1){print(glue::glue("Error! No object with partial name = '{string_search}' found in this directory. Specify a different folder within this project using the file_parent argument"))}
-  if (length(pathway) > 1){print(glue::glue("Error!", length(pathway),"objects with partial name = '{string_search}' found in this directory. Check folder contents for duplicate files, and ensure your string_search argument is specific."))}
+
+  if (length(pathway) < 1) {
+    warning(glue::glue("Error! No object with partial name = '{string_search}' found in directory {directory}. Specify a different file location using the directory argument"))
+  } else if (length(pathway) > 1){
+      warning(glue::glue("Error!", length(pathway),"objects with partial name = '{string_search}' found in this directory. Check folder contents for duplicate files, and ensure your string_search argument is specific."))
+    }
 
   return(readr::read_csv(paste0(pathway)))
 

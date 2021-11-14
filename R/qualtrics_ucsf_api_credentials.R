@@ -1,9 +1,13 @@
 
 
-#' Title
+#' UCSF Qualtrics API Credentialiing
 #'
-#' @param api_key
-#' @param base_url
+#' @description
+#' This function is a wrapper around the `qualtRics::qualtrics_api_credentials()` function where the `base_url` has been set to UCSF's Qualtrics API endpoint, `ucsf.co1.qualtrics.com`.
+#' See the UCSF_Qualtrics vignette for details on usage.
+#'
+#' @param api_key your personal Qualtrics API key formatted in quotes.
+#' @param base_url defaults to querying the UCSF Qualtrics instance
 #' @param overwrite
 #' @param install
 #'

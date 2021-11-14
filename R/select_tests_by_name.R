@@ -3,23 +3,24 @@
 #'
 #' @description
 #'
-#' @param dataframe dataframe object
-#' @param test_names character vector of all names of tests that one would like to select from the dataframe; assumes that the tests share a common string (e.g. "_DART" or "_BISBAS")
-#' @param ... any additional columns to be selected from the dataframe
+#' @param .data A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).
+#' @param test_names character vector of all names of tests that one would like to select from .data; assumes that the tests share a common string (e.g. "_DART" or "_BISBAS")
+#' @param ... any additional columns to be selected from .data
 #'
 #' @return
 #' @export
 #'
 #' @examples
-select_by_test_name <- function(dataframe, test_names, ...){
-  test_names <- paste0(test_names,collapse="|")
+select_by_test_name <- function(.data, test_names, ...){
 
-  column_list <- dataframe %>%
-    colnames() %>%
-    grep(test_names,.,ignore.case = TRUE, value = TRUE)
+  test_names <- test_names %>%
+    stringr::str_trim() %>%
+    paste0(.,collapse="|")
 
-  dataframe %>%
-    dplyr::select(...,column_list)
+  .data %<>%
+    dplyr::select(...,dplyr::matches(test_names))
+
+  return(.data)
 
 }
 

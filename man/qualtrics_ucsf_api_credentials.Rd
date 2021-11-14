@@ -2,7 +2,7 @@
 % Please edit documentation in R/qualtrics_ucsf_api_credentials.R
 \name{qualtrics_ucsf_api_credentials}
 \alias{qualtrics_ucsf_api_credentials}
-\title{Title}
+\title{UCSF Qualtrics API Credentialiing}
 \usage{
 qualtrics_ucsf_api_credentials(
   api_key,
@@ -12,11 +12,16 @@ qualtrics_ucsf_api_credentials(
 )
 }
 \arguments{
+\item{api_key}{your personal Qualtrics API key formatted in quotes.}
+
+\item{base_url}{defaults to querying the UCSF Qualtrics instance}
+
 \item{install}{}
 }
 \value{
 
 }
 \description{
-Title
+This function is a wrapper around the \code{qualtRics::qualtrics_api_credentials()} function where the \code{base_url} has been set to UCSF's Qualtrics API endpoint, \code{ucsf.co1.qualtrics.com}.
+See the UCSF_Qualtrics vignette for details on usage.
 }
