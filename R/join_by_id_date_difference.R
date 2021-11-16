@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-join_key_date_difference <- function(data1, data2, id1, id2, date1, date2, mode = "left", interval = 90) {
+join_by_id_date_difference <- function(data1, data2, id1, id2, date1, date2, mode = "left", interval = 90) {
 
 
   # Sub into the fuzzy_join by= call?
