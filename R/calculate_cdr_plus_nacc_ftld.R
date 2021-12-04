@@ -6,7 +6,7 @@
 #' as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
 #' but custom variable names can be assigned to each of these arguments.
 #'
-#' @param data dataframe object
+#' @param .data dataframe object
 #' @param MEMORY CDR memory score
 #' @param ORIENT CDR orientation score
 #' @param JUDGMENT CDR judgement score
@@ -18,15 +18,27 @@
 #'
 #' @return
 #'
-#' Object the same type as the `data` argument which should be a data frame variant.
-#'  * The returned data frame includes a new variable labeled `cdr_plus_nacc_ftld`
+#' An object of the same type as `.data`. The output has the following properties:
+#'  * Rows are not affected.
+#'  * Data frame attributes are preserved.
+#'  * Groups are maintained; you can't select off grouping variables.
+#'  * The returned data frame includes a new variable labeled `cdr_plus_nacc_ftld`.
+#'
+#'
+#'
+#' @section Examples:
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' nacc_cdr_data_simulated %>%
+#'    select(-NACCID,-VISITDATE) %>% # limit columns in final output for readability purposes
+#'    calculate_cdr_plus_nacc_ftld()
+#'
+#'
+#' ```
 #'
 #' @export
-#'
-#' @examples
-#'
-#'
-calculate_cdr_plus_nacc_ftld <- function(data, MEMORY = MEMORY, ORIENT = ORIENT, JUDGMENT = JUDGMENT, COMMUN = COMMUN,
+calculate_cdr_plus_nacc_ftld <- function(.data, MEMORY = MEMORY, ORIENT = ORIENT, JUDGMENT = JUDGMENT, COMMUN = COMMUN,
                                          HOMEHOBB = HOMEHOBB, PERSCARE = PERSCARE, COMPORT = COMPORT, CDRLANG = CDRLANG) {
 
 
@@ -36,7 +48,7 @@ calculate_cdr_plus_nacc_ftld <- function(data, MEMORY = MEMORY, ORIENT = ORIENT,
   HOMEHOBB <- rlang::enquo(HOMEHOBB); PERSCARE <- rlang::enquo(PERSCARE); COMPORT <- rlang::enquo(COMPORT); CDRLANG <- rlang::enquo(CDRLANG)
 
 
-  data %<>%
+  .data %<>%
     dplyr::mutate(cdr_plus_nacc_ftld = dplyr::case_when(
       # 1) If all domains are 0 then the global CDR plus NACC FTLD is 0
       .data[[MEMORY]]==0 & .data[[ORIENT]]==0 & .data[[JUDGMENT]]==0 & .data[[COMMUN]]==0 &
@@ -88,7 +100,7 @@ calculate_cdr_plus_nacc_ftld <- function(data, MEMORY = MEMORY, ORIENT = ORIENT,
     )
     )
 
-  return(data)
+  return(.data)
 }
 
 

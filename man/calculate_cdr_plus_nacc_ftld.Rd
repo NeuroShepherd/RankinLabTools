@@ -5,7 +5,7 @@
 \title{Calculate Global CDR® plus NACC FTLD Rating}
 \usage{
 calculate_cdr_plus_nacc_ftld(
-  data,
+  .data,
   MEMORY = MEMORY,
   ORIENT = ORIENT,
   JUDGMENT = JUDGMENT,
@@ -17,7 +17,7 @@ calculate_cdr_plus_nacc_ftld(
 )
 }
 \arguments{
-\item{data}{dataframe object}
+\item{.data}{dataframe object}
 
 \item{MEMORY}{CDR memory score}
 
@@ -36,9 +36,12 @@ calculate_cdr_plus_nacc_ftld(
 \item{CDRLANG}{CDR language score}
 }
 \value{
-Object the same type as the \code{data} argument which should be a data frame variant.
+An object of the same type as \code{.data}. The output has the following properties:
 \itemize{
-\item The returned data frame includes a new variable labeled \code{cdr_plus_nacc_ftld}
+\item Rows are not affected.
+\item Data frame attributes are preserved.
+\item Groups are maintained; you can't select off grouping variables.
+\item The returned data frame includes a new variable labeled \code{cdr_plus_nacc_ftld}.
 }
 }
 \description{
@@ -46,7 +49,24 @@ Object the same type as the \code{data} argument which should be a data frame va
 as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
 but custom variable names can be assigned to each of these arguments.
 }
-\examples{
-
-
+\section{Examples}{
+\if{html}{\out{<div class="r">}}\preformatted{nacc_cdr_data_simulated \%>\%
+   select(-NACCID,-VISITDATE) \%>\% # limit columns in final output for readability purposes
+   calculate_cdr_plus_nacc_ftld()
+}\if{html}{\out{</div>}}\preformatted{## # A tibble: 100 × 9
+##    MEMORY ORIENT JUDGMENT COMMUN HOMEHOBB PERSCARE COMPORT CDRLANG cdr_plus_nacc_ftld
+##     <dbl>  <dbl>    <dbl>  <dbl>    <dbl>    <dbl>   <dbl>   <dbl>              <dbl>
+##  1      2    0.5      0.5    0        2        3       1       0.5                  2
+##  2      0    0.5      0      0        0.5      0       3       0.5                  2
+##  3      0    1        2      2        0        0.5     0       0.5                  2
+##  4      1    0.5      1      0.5      0        1       0       2                    1
+##  5      1    0.5      0      0        0        0       0       1                    1
+##  6      0    0        0      0        0        0       0       0                    0
+##  7      1    2        0      0.5      0        0       0.5     0                    1
+##  8      1    1        0.5    0        0        0.5     2       0                    1
+##  9      2    0.5      1      0        3        0.5     0.5     0.5                  2
+## 10      1    1        0      0.5      0        1       0       0                    1
+## # … with 90 more rows
 }
+}
+
