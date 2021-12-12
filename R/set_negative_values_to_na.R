@@ -33,14 +33,3 @@ negative_values_to_na <- function(.data, ...){
 
 }
 
-
-
-
-mtcars %>%
-  mutate(cyl = as.character((cyl)),
-         mpg = as.character(mpg)) %>% tibble %>%
-  negative_values_to_na(mpg:hp)
-
-
-
-

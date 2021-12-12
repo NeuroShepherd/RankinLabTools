@@ -17,5 +17,35 @@ reverse_scoring(.data, ..., max_score)
 
 }
 \description{
-This function wraps \code{dplyr::mutate()} to reverse score columns given in the \code{...} argument. This procedure is frequently used for e.g. Likert scale questions whereby different questions within the same questionnaire have positive or negative valence.
+This function wraps \code{dplyr::mutate()} to reverse score columns given in the
+\code{...} argument. This procedure is frequently used for e.g. Likert scale
+questions whereby different questions within the same questionnaire have
+positive or negative valence. Note that you can supply an arbitrary number
+of variables to the \code{...} argument; this usage is recommended only if
+all of the variables have the same maximum value (e.g. again, a common
+situation for Likert questionnaires.)
 }
+\section{Examples}{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{data <- tibble(a = c(3,4,5,3), b=c(1,2,1,1))
+
+data
+}\if{html}{\out{</div>}}\preformatted{## # A tibble: 4 × 2
+##       a     b
+##   <dbl> <dbl>
+## 1     3     1
+## 2     4     2
+## 3     5     1
+## 4     3     1
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{# Say that column a is reverse scored with a max value of 5.
+data \%>\%
+   reverse_scoring(a, max_score = 5)
+}\if{html}{\out{</div>}}\preformatted{## # A tibble: 4 × 2
+##       a     b
+##   <dbl> <dbl>
+## 1     3     1
+## 2     2     2
+## 3     1     1
+## 4     3     1
+}
+}
+
