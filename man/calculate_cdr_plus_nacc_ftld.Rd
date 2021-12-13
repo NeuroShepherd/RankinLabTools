@@ -48,9 +48,11 @@ An object of the same type as \code{.data}. The output has the following propert
 \code{calculate_cdr_plus_nacc_ftld()} calculates the global CDR® plus NACC FTLD score
 as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
 but custom variable names can be assigned to each of these arguments.
+
+See \href{https://files.alz.washington.edu/documentation/uds3-ivp-b4.pdf}{Form B4: CDR® Dementia Staging Instrument} and pages 91-92 of the \href{https://files.alz.washington.edu/documentation/uds3-ivp-ded.pdf}{UDS3 Coding Guidebook}
 }
 \section{Examples}{
-\if{html}{\out{<div class="r">}}\preformatted{nacc_cdr_data_simulated \%>\%
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{nacc_cdr_data_simulated \%>\%
    select(-NACCID,-VISITDATE) \%>\% # limit columns in final output for readability purposes
    calculate_cdr_plus_nacc_ftld()
 }\if{html}{\out{</div>}}\preformatted{## # A tibble: 100 × 9

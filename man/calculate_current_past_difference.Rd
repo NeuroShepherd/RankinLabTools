@@ -4,10 +4,10 @@
 \alias{calculate_current_past_difference}
 \title{Calculate difference between vectors of columns}
 \usage{
-calculate_current_past_difference(dataframe, final, initial)
+calculate_current_past_difference(.data, final, initial)
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
 \item{final}{vector of final value columns from dataframe}
 
@@ -17,6 +17,38 @@ calculate_current_past_difference(dataframe, final, initial)
 dataframe
 }
 \description{
-This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
+This function accepts any number of 2 sets of equal length
+columns, and calculates the difference (that is, past-current = difference).
 Intended to be used in conjunction with the combine_current_and_past_observations() function.
 }
+\section{Examples}{
+
+
+The examples below aren't the most sensible application of the function as
+the idea of this function is to take the difference between two columns that
+are presumably\if{html}{\out{<div class="sourceCode r">}}\preformatted{data(mtcars)
+mtcars <- tibble(mtcars)
+calculate_current_past_difference(mtcars, mpg, wt) \%>\%
+   head(5)
+}\if{html}{\out{</div>}}\preformatted{## # A tibble: 5 × 12
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb `mpg-wt`
+##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl>
+## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4     18.4
+## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4     18.1
+## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1     20.5
+## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1     18.2
+## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2     15.3
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, mpg:hp, wt:am) \%>\%
+   head(5)
+}\if{html}{\out{</div>}}\preformatted{## # A tibble: 5 × 15
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb `mpg-wt` `cyl-qsec`
+##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl>      <dbl>
+## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4     18.4     -10.5 
+## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4     18.1     -11.0 
+## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1     20.5     -14.6 
+## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1     18.2     -13.4 
+## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2     15.3      -9.02
+## # … with 2 more variables: disp-vs <dbl>, hp-am <dbl>
+}
+}
+
