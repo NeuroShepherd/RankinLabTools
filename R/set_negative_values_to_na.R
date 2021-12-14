@@ -11,7 +11,13 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @section Examples:
+#'
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' ```
+#'
 negative_values_to_na <- function(.data, ...){
 
   non_numeric_vars <- select(.data, ...) %>%

@@ -41,14 +41,13 @@ calculate_current_past_difference(mtcars, mpg, wt) \%>\%
 }\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, mpg:hp, wt:am) \%>\%
    head(5)
 }\if{html}{\out{</div>}}\preformatted{## # A tibble: 5 × 15
-##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb `mpg-wt` `cyl-qsec`
-##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl>      <dbl>
-## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4     18.4     -10.5 
-## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4     18.1     -11.0 
-## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1     20.5     -14.6 
-## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1     18.2     -13.4 
-## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2     15.3      -9.02
-## # … with 2 more variables: disp-vs <dbl>, hp-am <dbl>
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb `mpg-wt` `cyl-qsec` `disp-vs` `hp-am`
+##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl>      <dbl>     <dbl>   <dbl>
+## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4     18.4     -10.5        160     109
+## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4     18.1     -11.0        160     109
+## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1     20.5     -14.6        107      92
+## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1     18.2     -13.4        257     110
+## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2     15.3      -9.02       360     175
 }
 }
 

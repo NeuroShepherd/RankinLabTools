@@ -25,3 +25,7 @@ qualtrics_ucsf_api_credentials(
 This function is a wrapper around the \code{qualtRics::qualtrics_api_credentials()} function where the \code{base_url} has been set to UCSF's Qualtrics API endpoint, \code{ucsf.co1.qualtrics.com}.
 See the UCSF_Qualtrics vignette for details on usage.
 }
+\section{Examples}{
+
+}
+

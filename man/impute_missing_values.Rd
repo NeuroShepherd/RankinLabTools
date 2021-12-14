@@ -5,7 +5,7 @@
 \title{Impute for Missing Values}
 \usage{
 impute_missing_values(
-  dataframe,
+  .data,
   vars_to_impute,
   scale_name,
   missing_threshold = 0.2,
@@ -13,7 +13,7 @@ impute_missing_values(
 )
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
 \item{vars_to_impute}{vector of variables from which a score will be calculated/imputed}
 
@@ -29,3 +29,7 @@ impute_missing_values(
 \description{
 This function calculates imputed scores where item-level data is missing, and allows for the threshold of proportion of missing questions to be adjusted
 }
+\section{Examples}{
+
+}
+

@@ -5,14 +5,14 @@
 \title{Combine Current and Past Observations}
 \usage{
 combine_current_and_past_observations(
-  dataframe,
+  .data,
   CurrentPast = CurrentPast,
   DCDate = DCDate,
   PIDN = PIDN
 )
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
 \item{CurrentPast}{variable indicating whether the observation is a "Current" or "Past" record; default column name expected is CurrentPast, but can be replaced with any column with "current" and "past"/"before" characters}
 
@@ -24,5 +24,16 @@ combine_current_and_past_observations(
 dataframe
 }
 \description{
+This is a specialized function for use with LAVA Query data frames, and can be
+thought of as a conditional version of \code{spread()} or \code{pivot_longer()}. There are
+a number of questionnaires where data is collected about the "current" time
+point \emph{and} about a time in the "past," generally 5 years in the past for the
+questionnaires we use. This "past" data is collected only once while the "current"
+data is collected at initial and every subsequent visit. Ultimately, researchers
+will want to calculate change scores from before someone's diagnosis, and this function
+places the "past/before" data next to every instance of "current" data/
+}
+\section{Examples}{
 
 }
+

@@ -9,8 +9,12 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @section Examples:
 #'
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' ```
 #'
 filter_for_most_recent_visit <- function(.data, id, date) {
 

@@ -4,9 +4,11 @@
 \alias{qualtrics_hot_spot_score}
 \title{Title}
 \usage{
-qualtrics_hot_spot_score(data, var)
+qualtrics_hot_spot_score(.data, var)
 }
 \arguments{
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
+
 \item{var}{}
 }
 \value{
@@ -15,3 +17,7 @@ qualtrics_hot_spot_score(data, var)
 \description{
 Title
 }
+\section{Examples}{
+
+}
+
