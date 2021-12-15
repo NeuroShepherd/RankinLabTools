@@ -20,8 +20,11 @@
 #'
 #' ```
 #'
-impute_missing_values <- function(.data, vars_to_impute, scale_name, missing_threshold = 0.2, toggle_warning = TRUE){
-  if(missing_threshold != 0.2 & toggle_warning){print("Warning! Default threshold is 0.2 or 20% in LAVA. Do you have a compelling reason to change this? (You can turn this warning off; toggle_warning = FALSE)")}
+impute_missing_score <- function(.data, vars_to_impute, scale_name, missing_threshold = 0.2){
+
+  if(missing_threshold != 0.2){
+    warning("Warning! Default threshold for a record to be considered complete is 0.2 or 20% in LAVA, and for most questionnaires.")
+  }
 
   vars_to_impute <- rlang::enquo(vars_to_impute)
   length_imputed_columns <- .data %>%
