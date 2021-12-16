@@ -17,7 +17,7 @@
 #'
 #' ```
 #'
-qualtrics_sdr_item_score <- function(.data, .metadata, two_point1, two_point2 = NA, one_point) {
+qualtrics_sdr_item_score <- function(.data, .metadata, two_point1, two_point2 = NA, one_point, output_name) {
 
   # https://stackoverflow.com/questions/57136322/what-does-the-operator-mean-in-r-particularly-in-the-context-symx
 
@@ -28,8 +28,7 @@ qualtrics_sdr_item_score <- function(.data, .metadata, two_point1, two_point2 = 
   one_point_sym <- pull(.metadata, {{one_point}}) %>%
     map( ~{ if (is.na(.x)) { NA } else { sym(.x) } } )
 
-  names <- pull( .metadata, {{two_point1}} ) %>%
-    map( ~str_remove_all(.x, "_[:digit:].*") %>% paste0("sdr_score_",.) )
+  names <- pull( .metadata, {{output_name}} ) %>% map(~.x)
 
   meta_vars <- list(two_point1_sym, two_point2_sym, one_point_sym, names)
 
