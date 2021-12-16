@@ -4,7 +4,14 @@
 \alias{qualtrics_sdr_item_score}
 \title{Title}
 \usage{
-qualtrics_sdr_item_score(.data, two_point1, two_point2 = NA, one_point)
+qualtrics_sdr_item_score(
+  .data,
+  .metadata,
+  two_point1,
+  two_point2 = NA,
+  one_point,
+  output_name
+)
 }
 \arguments{
 \item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
