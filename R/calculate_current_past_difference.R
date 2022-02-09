@@ -15,17 +15,21 @@
 #'
 #' @section Examples:
 #'
-#' The examples below aren't the most sensible application of the function as
-#' the idea of this function is to take the difference between two columns that
-#' are presumably
+#' The examples below highlight three different approaches to using this function.
+#' 1. The difference between two columns
+#' 1. The difference between a series of columns, using the `:` notation from `{dplyr}`
+#' 1. The difference between columns using a vector of column names
 #'
-#' ```{r, message=F, rows.print=5}
+#' ```{r, message=F, rows.print=5, comment=""}
 #'
 #' data(mtcars)
-#' mtcars <- tibble(mtcars)
-#' calculate_current_past_difference(mtcars, mpg, wt) %>%
+#' mtcars <- tibble(mtcars) %>%
+#'    select(mpg, cyl, disp, hp)
+#' calculate_current_past_difference(mtcars, mpg, hp) %>%
 #'    head(5)
-#' calculate_current_past_difference(mtcars, mpg:hp, wt:am) %>%
+#' calculate_current_past_difference(mtcars, mpg:cyl, disp:hp) %>%
+#'    head(5)
+#' calculate_current_past_difference(mtcars, c(mpg,cyl), c(disp,hp)) %>%
 #'    head(5)
 #'
 #' ```

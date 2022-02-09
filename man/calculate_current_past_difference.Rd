@@ -24,30 +24,44 @@ Intended to be used in conjunction with the combine_current_and_past_observation
 \section{Examples}{
 
 
-The examples below aren't the most sensible application of the function as
-the idea of this function is to take the difference between two columns that
-are presumably\if{html}{\out{<div class="sourceCode r">}}\preformatted{data(mtcars)
-mtcars <- tibble(mtcars)
-calculate_current_past_difference(mtcars, mpg, wt) \%>\%
+The examples below highlight three different approaches to using this function.
+\enumerate{
+\item The difference between two columns
+\item The difference between a series of columns, using the \code{:} notation from \code{{dplyr}}
+\item The difference between columns using a vector of column names
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{data(mtcars)
+mtcars <- tibble(mtcars) \%>\%
+   select(mpg, cyl, disp, hp)
+calculate_current_past_difference(mtcars, mpg, hp) \%>\%
    head(5)
-}\if{html}{\out{</div>}}\preformatted{## # A tibble: 5 × 12
-##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb `mpg-wt`
-##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl>
-## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4     18.4
-## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4     18.1
-## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1     20.5
-## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1     18.2
-## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2     15.3
-}\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, mpg:hp, wt:am) \%>\%
+}\if{html}{\out{</div>}}\preformatted{# A tibble: 5 × 5
+    mpg   cyl  disp    hp `mpg-hp`
+  <dbl> <dbl> <dbl> <dbl>    <dbl>
+1  21       6   160   110    -89  
+2  21       6   160   110    -89  
+3  22.8     4   108    93    -70.2
+4  21.4     6   258   110    -88.6
+5  18.7     8   360   175   -156. 
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, mpg:cyl, disp:hp) \%>\%
    head(5)
-}\if{html}{\out{</div>}}\preformatted{## # A tibble: 5 × 15
-##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb `mpg-wt` `cyl-qsec` `disp-vs` `hp-am`
-##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>    <dbl>      <dbl>     <dbl>   <dbl>
-## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4     18.4     -10.5        160     109
-## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4     18.1     -11.0        160     109
-## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1     20.5     -14.6        107      92
-## 4  21.4     6   258   110  3.08  3.22  19.4     1     0     3     1     18.2     -13.4        257     110
-## 5  18.7     8   360   175  3.15  3.44  17.0     0     0     3     2     15.3      -9.02       360     175
+}\if{html}{\out{</div>}}\preformatted{# A tibble: 5 × 6
+    mpg   cyl  disp    hp `mpg-disp` `cyl-hp`
+  <dbl> <dbl> <dbl> <dbl>      <dbl>    <dbl>
+1  21       6   160   110     -139       -104
+2  21       6   160   110     -139       -104
+3  22.8     4   108    93      -85.2      -89
+4  21.4     6   258   110     -237.      -104
+5  18.7     8   360   175     -341.      -167
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, c(mpg,cyl), c(disp,hp)) \%>\%
+   head(5)
+}\if{html}{\out{</div>}}\preformatted{# A tibble: 5 × 6
+    mpg   cyl  disp    hp `mpg-disp` `cyl-hp`
+  <dbl> <dbl> <dbl> <dbl>      <dbl>    <dbl>
+1  21       6   160   110     -139       -104
+2  21       6   160   110     -139       -104
+3  22.8     4   108    93      -85.2      -89
+4  21.4     6   258   110     -237.      -104
+5  18.7     8   360   175     -341.      -167
 }
 }
 
