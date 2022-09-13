@@ -40,21 +40,21 @@
 #' ```
 #'
 #' @export
-calculate_cdr_plus_nacc_ftld <- function(.data, MEMORY = MEMORY, ORIENT = ORIENT, JUDGMENT = JUDGMENT, COMMUN = COMMUN,
-                                         HOMEHOBB = HOMEHOBB, PERSCARE = PERSCARE, COMPORT = COMPORT, CDRLANG = CDRLANG) {
+calculate_cdr_plus_nacc_ftld <- function(.data, .memory = MEMORY, .orient = ORIENT, .judgment = JUDGMENT, .commun = COMMUN,
+                                         .homehobb = HOMEHOBB, .perscare = PERSCARE, .comport = COMPORT, .cdrlang = CDRLANG) {
 
 
-  cdr_variables <- rlang::enexprs(MEMORY,ORIENT,JUDGMENT,COMMUN,HOMEHOBB,PERSCARE,COMPORT,CDRLANG) %>% as.character()
+  cdr_variables <- rlang::enexprs(.memory,.orient,.judgment,.commun,.homehobb,.perscare,.comport,CDRLANG) %>% as.character()
 
-  MEMORY <- rlang::enquo(MEMORY); ORIENT <- rlang::enquo(ORIENT); JUDGMENT <- rlang::enquo(JUDGMENT); COMMUN <- rlang::enquo(COMMUN)
-  HOMEHOBB <- rlang::enquo(HOMEHOBB); PERSCARE <- rlang::enquo(PERSCARE); COMPORT <- rlang::enquo(COMPORT); CDRLANG <- rlang::enquo(CDRLANG)
+  .memory <- rlang::enquo(.memory); .orient <- rlang::enquo(.orient); .judgment <- rlang::enquo(.judgment); .commun <- rlang::enquo(.commun)
+  .homehobb <- rlang::enquo(.homehobb); .perscare <- rlang::enquo(.perscare); .comport <- rlang::enquo(.comport); .cdrlang <- rlang::enquo(.cdrlang)
 
 
   .data %<>%
     dplyr::mutate(cdr_plus_nacc_ftld = dplyr::case_when(
       # 1) If all domains are 0 then the global CDR plus NACC FTLD is 0
-      .data[[MEMORY]]==0 & .data[[ORIENT]]==0 & .data[[JUDGMENT]]==0 & .data[[COMMUN]]==0 &
-      .data[[HOMEHOBB]]==0 & .data[[PERSCARE]]==0 & .data[[COMPORT]]==0 & .data[[CDRLANG]]==0 ~ 0,
+      .data[[.memory]]==0 & .data[[.orient]]==0 & .data[[.judgment]]==0 & .data[[.commun]]==0 &
+      .data[[.homehobb]]==0 & .data[[.perscare]]==0 & .data[[.comport]]==0 & .data[[.cdrlang]]==0 ~ 0,
 
 
       # 2) If the maximum domain score is 0.5, the CDR plus NACC FTLD is 0.5
