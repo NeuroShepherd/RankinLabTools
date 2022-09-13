@@ -16,8 +16,7 @@ negative_values_to_na <- function(.data, ...){
 
   non_numeric_vars <- select(.data, ...) %>%
     map(~is.numeric(.x)) %>%
-    keep(. == FALSE) %>% names %>%
-    toString()
+    Filter(function(x) x == FALSE, .) %>% names()
 
   if (length(non_numeric_vars) > 0) {
     stop(glue::glue("Cannot operate on non-numeric variables: {non_numeric_vars}"))

@@ -14,8 +14,10 @@
 #'
 filter_for_most_recent_visit <- function(.data, id, date) {
 
-  if ( (!lubridate::is.Date(dplyr::pull(.data,{{date}}))) &&
-       (is.numeric(dplyr::pull(.data,{{date}}))) ) {
+  date_temp <- dplyr::pull(.data,{{date}})
+
+  if ( (!lubridate::is.Date(date_temp)) &&
+       (is.numeric(date_temp)) ) {
     warning("The {date} variable is not of class date, but is of class numeric. The function will operate, but results may be unexpected.")
   }
 
