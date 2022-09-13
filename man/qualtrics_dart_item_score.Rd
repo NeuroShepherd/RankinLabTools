@@ -4,9 +4,11 @@
 \alias{qualtrics_dart_item_score}
 \title{Title}
 \usage{
-qualtrics_dart_item_score(data, var, value)
+qualtrics_dart_item_score(.data, var, value)
 }
 \arguments{
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
+
 \item{value}{}
 }
 \value{
@@ -15,3 +17,7 @@ qualtrics_dart_item_score(data, var, value)
 \description{
 Title
 }
+\section{Examples}{
+
+}
+

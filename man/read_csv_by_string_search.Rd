@@ -17,3 +17,7 @@ read_csv_by_string_search(string_search, directory = here::here())
 \description{
 This convenience function searches either the default directory or a specified directory for a (1) .csv file that at least partially matches the string_search variable. The file is then read-in to R.
 }
+\section{Examples}{
+
+}
+

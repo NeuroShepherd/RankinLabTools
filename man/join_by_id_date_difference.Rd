@@ -38,3 +38,7 @@ data frame comprised of data1 and data2
 \description{
 
 }
+\section{Examples}{
+
+}
+

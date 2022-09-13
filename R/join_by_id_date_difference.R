@@ -15,7 +15,13 @@
 #' @return data frame comprised of data1 and data2
 #' @export
 #'
-#' @examples
+#' @section Examples:
+#'
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' ```
+#'
 join_by_id_date_difference <- function(data1, data2, id1, id2, date1, date2, mode = "left", interval = 90) {
 
 

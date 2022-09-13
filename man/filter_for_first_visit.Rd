@@ -4,10 +4,14 @@
 \alias{filter_for_first_visit}
 \title{Title}
 \usage{
-filter_for_first_visit(dataframe, id, date)
+filter_for_first_visit(.data, id, date)
 }
 \arguments{
-\item{date}{}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
+
+\item{id}{grouping ID variable}
+
+\item{date}{date variable}
 }
 \value{
 
@@ -15,3 +19,7 @@ filter_for_first_visit(dataframe, id, date)
 \description{
 Title
 }
+\section{Examples}{
+
+}
+

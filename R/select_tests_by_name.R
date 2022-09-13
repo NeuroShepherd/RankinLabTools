@@ -10,7 +10,13 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @section Examples:
+#'
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' ```
+#'
 select_by_test_name <- function(.data, test_names, ...){
 
   test_names <- test_names %>%

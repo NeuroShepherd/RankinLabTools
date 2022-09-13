@@ -10,7 +10,13 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @section Examples:
+#'
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' ```
+#'
 read_csv_by_string_search <- function(string_search, directory = here::here()) {
 
   pathway <- fs::dir_info(directory) %>%

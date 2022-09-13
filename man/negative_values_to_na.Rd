@@ -17,3 +17,7 @@ negative_values_to_na(.data, ...)
 \description{
 Allows for the user to define any numeric variables they would like to change to NA if the value of that variable is less than 0
 }
+\section{Examples}{
+
+}
+

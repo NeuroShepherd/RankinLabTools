@@ -4,9 +4,11 @@
 \alias{qualtrics_sdr_item_response}
 \title{Title}
 \usage{
-qualtrics_sdr_item_response(df, variable)
+qualtrics_sdr_item_response(.data, root_variable)
 }
 \arguments{
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
+
 \item{variable}{}
 }
 \value{
@@ -15,3 +17,7 @@ qualtrics_sdr_item_response(df, variable)
 \description{
 Title
 }
+\section{Examples}{
+
+}
+

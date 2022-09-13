@@ -19,7 +19,7 @@ filter_for_most_recent_visit(.data, id, date)
 \description{
 Filter for Most Recent Visit by ID
 }
-\examples{
-
+\section{Examples}{
 
 }
+

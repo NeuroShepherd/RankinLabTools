@@ -2,9 +2,12 @@
 
 #' Calculate Global CDR`r sprintf("\U00AE")` plus NACC FTLD Rating
 #'
+#'
 #' @description `calculate_cdr_plus_nacc_ftld()` calculates the global CDR`r sprintf("\U00AE")` plus NACC FTLD score
 #' as described by Miyagawa et al. (2020). The default arguments expect CDR variable names as defined by the NACC,
 #' but custom variable names can be assigned to each of these arguments.
+#'
+#' See [Form B4: CDR`r sprintf("\U00AE")` Dementia Staging Instrument](https://files.alz.washington.edu/documentation/uds3-ivp-b4.pdf) and pages 91-92 of the [UDS3 Coding Guidebook](https://files.alz.washington.edu/documentation/uds3-ivp-ded.pdf)
 #'
 #' @param .data dataframe object
 #' @param MEMORY CDR memory score
@@ -29,7 +32,6 @@
 #' @section Examples:
 #'
 #' ```{r, message=F, rows.print=5}
-#'
 #' nacc_cdr_data_simulated %>%
 #'    select(-NACCID,-VISITDATE) %>% # limit columns in final output for readability purposes
 #'    calculate_cdr_plus_nacc_ftld()

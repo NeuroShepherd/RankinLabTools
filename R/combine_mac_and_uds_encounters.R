@@ -14,7 +14,13 @@
 #' @return dataframe
 #' @export
 #'
-#' @examples
+#' @section Examples:
+#'
+#'
+#' ```{r, message=F, rows.print=5}
+#'
+#' ```
+#'
 combine_mac_uds_encounters <- function(dataframe, questions_to_combine, day_range = 30, DCDate = DCDate, PIDN = PIDN){
   questions_to_combine <- enquo(questions_to_combine)
   DCDate <- enquo(DCDate)

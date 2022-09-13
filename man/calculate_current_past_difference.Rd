@@ -4,10 +4,10 @@
 \alias{calculate_current_past_difference}
 \title{Calculate difference between vectors of columns}
 \usage{
-calculate_current_past_difference(dataframe, final, initial)
+calculate_current_past_difference(.data, final, initial)
 }
 \arguments{
-\item{dataframe}{dataframe object}
+\item{.data}{A data frame, data frame extension (e.g. a tibble), or a lazy data frame (e.g. from dbplyr or dtplyr).}
 
 \item{final}{vector of final value columns from dataframe}
 
@@ -17,6 +17,51 @@ calculate_current_past_difference(dataframe, final, initial)
 dataframe
 }
 \description{
-This function accepts any number of 2 sets of equal length columns, and calculates the difference (that is, past-current = difference).
+This function accepts any number of 2 sets of equal length
+columns, and calculates the difference (that is, past-current = difference).
 Intended to be used in conjunction with the combine_current_and_past_observations() function.
 }
+\section{Examples}{
+
+
+The examples below highlight three different approaches to using this function.
+\enumerate{
+\item The difference between two columns
+\item The difference between a series of columns, using the \code{:} notation from \code{{dplyr}}
+\item The difference between columns using a vector of column names
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{data(mtcars)
+mtcars <- tibble(mtcars) \%>\%
+   select(mpg, cyl, disp, hp)
+calculate_current_past_difference(mtcars, mpg, hp) \%>\%
+   head(5)
+}\if{html}{\out{</div>}}\preformatted{# A tibble: 5 × 5
+    mpg   cyl  disp    hp `mpg-hp`
+  <dbl> <dbl> <dbl> <dbl>    <dbl>
+1  21       6   160   110    -89  
+2  21       6   160   110    -89  
+3  22.8     4   108    93    -70.2
+4  21.4     6   258   110    -88.6
+5  18.7     8   360   175   -156. 
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, mpg:cyl, disp:hp) \%>\%
+   head(5)
+}\if{html}{\out{</div>}}\preformatted{# A tibble: 5 × 6
+    mpg   cyl  disp    hp `mpg-disp` `cyl-hp`
+  <dbl> <dbl> <dbl> <dbl>      <dbl>    <dbl>
+1  21       6   160   110     -139       -104
+2  21       6   160   110     -139       -104
+3  22.8     4   108    93      -85.2      -89
+4  21.4     6   258   110     -237.      -104
+5  18.7     8   360   175     -341.      -167
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{calculate_current_past_difference(mtcars, c(mpg,cyl), c(disp,hp)) \%>\%
+   head(5)
+}\if{html}{\out{</div>}}\preformatted{# A tibble: 5 × 6
+    mpg   cyl  disp    hp `mpg-disp` `cyl-hp`
+  <dbl> <dbl> <dbl> <dbl>      <dbl>    <dbl>
+1  21       6   160   110     -139       -104
+2  21       6   160   110     -139       -104
+3  22.8     4   108    93      -85.2      -89
+4  21.4     6   258   110     -237.      -104
+5  18.7     8   360   175     -341.      -167
+}
+}
+
