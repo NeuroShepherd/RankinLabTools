@@ -20,7 +20,7 @@
 read_csv_by_string_search <- function(string_search, directory = here::here()) {
 
   pathway <- fs::dir_info(directory) %>%
-    dplyr::filter(dplyr::across(path, ~stringr::str_detect(.x,pattern=glue::glue("{string_search}")))) %>%
+    dplyr::filter(dplyr::if_any(path, ~stringr::str_detect(.x,pattern=glue::glue("{string_search}")))) %>%
     dplyr::pull(path)
 
   if (length(pathway) < 1) {
